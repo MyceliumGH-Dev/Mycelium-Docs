@@ -1,4 +1,9 @@
 # Netlify configuration file
+#
+# NOT currently used by the live deploy. Netlify is published from GitHub Actions
+# (.github/workflows/deploy.yml), which uploads a prebuilt ./site with `netlify deploy
+# --no-build --dir=site` — that path ignores both the build command and `publish` below.
+# This file is kept so that connecting Netlify's own git integration later Just Works.
 
 [build]
 # Directory to publish (make sure this matches the 'site_dir' in your mkdocs.yml)

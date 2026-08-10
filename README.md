@@ -8,8 +8,8 @@ with [MkDocs](https://www.mkdocs.org/) and
 
 | Target | URL | Trigger |
 | --- | --- | --- |
-| Netlify (primary) | https://mycelium-gh-docs.netlify.app | push to `main` |
-| GitHub Pages (mirror) | https://myceliumgh-dev.github.io/Mycelium-Docs/ | `deploy.yml` on push to `main` |
+| Netlify (primary) | https://mycelium-gh-docs.netlify.app | `deploy.yml` on push to `main` |
+| GitHub Pages (mirror) | https://myceliumgh-dev.github.io/Mycelium-Docs/ | same workflow, same push |
 
 > **The gh-pages mirror renders without icons and screenshots.** Generated component pages
 > use root-absolute asset paths (`/images/icons/...`) — the shape Grasshopper's exporter
