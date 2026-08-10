@@ -22,6 +22,10 @@
   --md-accent-bg-color: #ffffff;
   --md-accent-bg-color--light: rgba(255, 255, 255, 0.7);
 
+  /* Material defaults link colour to the primary, which is the right call on a light
+     background but not on a dark one — see the slate block below. */
+  --md-typeset-a-color: #29473a;
+
   --mycelium-cream: #f1ede1;
   --mycelium-grey: #c9d1cd;
 }
@@ -34,6 +38,10 @@
 
   --md-accent-fg-color: #8fb3a2;
   --md-accent-fg-color--transparent: rgba(143, 179, 162, 0.1);
+
+  /* The deep green primary is near-black against the slate background, so links and the
+     active nav item would be unreadable if they inherited it. */
+  --md-typeset-a-color: #8fb3a2;
 
   --mycelium-cream: #242b27;
   --mycelium-grey: #3a4540;
