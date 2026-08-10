@@ -11,6 +11,12 @@ with [MkDocs](https://www.mkdocs.org/) and
 | Netlify (primary) | https://mycelium-gh-docs.netlify.app | push to `main` |
 | GitHub Pages (mirror) | https://myceliumgh-dev.github.io/Mycelium-Docs/ | `deploy.yml` on push to `main` |
 
+> **The gh-pages mirror renders without icons and screenshots.** Generated component pages
+> use root-absolute asset paths (`/images/icons/...`) — the shape Grasshopper's exporter
+> produces — which resolve at a domain root but not under the `/Mycelium-Docs/` subpath
+> Pages serves from. Treat Netlify as the canonical URL. Pointing a custom domain (or a
+> Pages custom domain) at the repo fixes the mirror without touching the exporter.
+
 The marketing site lives in a separate repository:
 [Mycelium-Website](https://github.com/MyceliumGH-Dev/Mycelium-Website).
 

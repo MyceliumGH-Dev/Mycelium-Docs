@@ -49,5 +49,8 @@ On every Mycelium plugin release (`MyceliumGH-Dev/Mycelium`, `manifest.yml` vers
 - Palette lives in `docs/stylesheets/extra.css`; `mkdocs.yml` declares `primary: custom` /
   `accent: custom`. It is a copy of the website's palette plus the component-doc blocks
   (nav icons, quick-link cards, ribbon toolbar) — keep the shared part in sync by hand.
-- Generated pages use root-relative asset paths (`/images/icons/...`), which only resolve
-  in a built site. `.lycheeignore` exempts them from the link checker.
+- Generated pages use root-absolute asset paths (`/images/icons/...`), which only resolve
+  in a built site served from a domain root. `.lycheeignore` exempts them from the link
+  checker. Consequence: **the gh-pages mirror at `/Mycelium-Docs/` shows no icons or
+  screenshots** — Netlify is the canonical URL until a custom domain exists. Do not
+  "fix" this by rewriting generated pages; the next export overwrites them.
