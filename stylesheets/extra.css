@@ -1,0 +1,440 @@
+/* ---------------------------------------------------------------------------
+   Mycelium palette
+   Derived from the logo (design/icons/svg/Mycelium.svg):
+     #29473A  deep green   — primary
+     #3A6250  mid green    — hover / accent
+     #F1EDE1  cream        — light surface tint
+     #C9D1CD  cool grey    — muted fills
+   The mkdocs.yml palette declares `primary: custom` / `accent: custom`, which
+   makes Material read these variables instead of shipping a named theme color.
+   --------------------------------------------------------------------------- */
+
+:root,
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #29473a;
+  --md-primary-fg-color--light: #3a6250;
+  --md-primary-fg-color--dark: #1c3128;
+  --md-primary-bg-color: #f1ede1;
+  --md-primary-bg-color--light: rgba(241, 237, 225, 0.7);
+
+  --md-accent-fg-color: #3a6250;
+  --md-accent-fg-color--transparent: rgba(58, 98, 80, 0.1);
+  --md-accent-bg-color: #ffffff;
+  --md-accent-bg-color--light: rgba(255, 255, 255, 0.7);
+
+  /* Material defaults link colour to the primary, which is the right call on a light
+     background but not on a dark one — see the slate block below. */
+  --md-typeset-a-color: #29473a;
+
+  --mycelium-cream: #f1ede1;
+  --mycelium-grey: #c9d1cd;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #1c3128;
+  --md-primary-fg-color--light: #3a6250;
+  --md-primary-fg-color--dark: #12211b;
+  --md-primary-bg-color: #f1ede1;
+
+  --md-accent-fg-color: #8fb3a2;
+  --md-accent-fg-color--transparent: rgba(143, 179, 162, 0.1);
+
+  /* The deep green primary is near-black against the slate background, so links and the
+     active nav item would be unreadable if they inherited it. */
+  --md-typeset-a-color: #8fb3a2;
+
+  --mycelium-cream: #242b27;
+  --mycelium-grey: #3a4540;
+}
+
+/* --- Announcement bar ---------------------------------------------------- */
+
+/* The banner sits on the near-black footer colour in both schemes, so the
+   default link colour (the deep-green accent) fails contrast against it. */
+.md-banner a,
+.md-banner a:hover,
+.md-banner a:focus {
+  color: #a8c9b8;
+}
+
+.md-banner a:hover,
+.md-banner a:focus {
+  text-decoration: underline;
+}
+
+/* --- Hero ---------------------------------------------------------------- */
+
+.hero-logo {
+  text-align: center;
+}
+
+.hero-tagline {
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin: 0.5rem auto 1.5rem;
+  max-width: 34rem;
+  color: var(--md-default-fg-color--light);
+}
+
+/* The logo already carries a cream plate, so it stays legible on dark
+   backgrounds — do not invert it the way a monochrome wordmark would need. */
+
+/* --- Buttons ------------------------------------------------------------- */
+
+.md-content__button {
+  display: none;
+}
+
+.md-button {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 24px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.md-button:hover,
+.md-button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.md-button:focus-visible {
+  outline: 3px solid var(--md-primary-fg-color--light);
+  outline-offset: 2px;
+}
+
+.md-button--primary {
+  background-color: #29473a;
+  border-color: #29473a;
+  color: #f1ede1;
+}
+
+.md-button--primary:hover,
+.md-button--primary:focus-visible {
+  background-color: #3a6250;
+  border-color: #3a6250;
+  color: #ffffff;
+}
+
+/* --- Layout helpers ------------------------------------------------------ */
+
+.center-text {
+  text-align: center;
+  display: block;
+}
+
+.center {
+  display: block;
+  margin: 0 auto;
+}
+
+.separator {
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+span.faint {
+  color: var(--md-default-fg-color--light);
+}
+
+/* Visually hidden but readable by screen readers. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --- Team ---------------------------------------------------------------- */
+
+.mdx-users {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.mdx-users__testimonial {
+  text-align: center;
+  max-width: 220px;
+}
+
+.mdx-users__testimonial img {
+  border-radius: 50%;
+  border: 3px solid var(--mycelium-grey);
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.black-and-white {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.black-and-white:hover {
+  filter: grayscale(0%);
+}
+
+/* --- Gallery ------------------------------------------------------------- */
+
+.mycelium-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.mycelium-gallery figure {
+  margin: 0;
+}
+
+.mycelium-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+}
+
+.mycelium-gallery figcaption {
+  font-size: 0.75rem;
+  color: var(--md-default-fg-color--light);
+  text-align: center;
+  margin-top: 0.35rem;
+}
+
+/* --- Navigation ---------------------------------------------------------- */
+
+/* Material title-cases nav labels; keep authored casing except for FAQ. */
+.md-tabs__link,
+.md-nav__link,
+.md-nav__title,
+.md-nav__item,
+.md-tabs__title {
+  text-transform: none !important;
+}
+
+.md-nav__link[href*="faq"],
+.md-tabs__link[href*="faq"] {
+  text-transform: uppercase !important;
+}
+
+/* ===========================================================================
+   Component documentation
+   The blocks below style output produced by tools/export_components.py:
+   nav icons, category quick-link cards, and the Grasshopper ribbon toolbar.
+   =========================================================================== */
+
+.nav-gh-icon {
+  width: 16px;
+  height: 16px;
+  transform: translateY(3px);
+  margin-right: 6px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* Canvas screenshots are exported at 2.15x zoom; halve them for display. */
+.md-content img[src*="/images/components/"] {
+  width: auto;
+  height: auto;
+  zoom: 50%;
+}
+
+/* --- Quick-link cards on category and overview pages ---------------------- */
+
+.index-quicklink-container {
+  margin: 2vh 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+  clear: both;
+}
+
+.index-quicklink-container > a,
+.index-quicklink-container > a:hover {
+  text-decoration: none !important;
+  display: flex;
+}
+
+.index-quicklink {
+  flex: 1 1 auto;
+  background-color: #ffffff;
+  outline: solid 1px #e5e5e5;
+  border-radius: 8px;
+  padding: 0.8rem;
+  text-align: left;
+  color: #222222 !important;
+  display: flex;
+  flex-direction: column;
+}
+
+[data-md-color-scheme="slate"] .index-quicklink {
+  background-color: #1e2125;
+  outline: solid 1px #3a3f47;
+  color: #ffffff !important;
+}
+
+.index-quicklink:hover {
+  outline-color: var(--md-primary-fg-color);
+  transition: box-shadow 0.25s;
+  box-shadow: var(--md-shadow-z2);
+}
+
+.index-quicklink:active {
+  background-color: var(--md-primary-fg-color);
+  color: #ffffff !important;
+}
+
+.index-quicklink-title {
+  font-size: 20px;
+  font-weight: 600;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 0.4rem;
+  margin-top: -0.3rem;
+  display: flex;
+  align-items: center;
+}
+
+[data-md-color-scheme="slate"] .index-quicklink-title {
+  border-bottom: 1px solid #3a3f47;
+}
+
+.index-quicklink-text {
+  display: block;
+  padding-top: 0.4rem;
+  font-size: 16px;
+  color: #6c757d;
+}
+
+[data-md-color-scheme="slate"] .index-quicklink-text {
+  color: #a0aab2;
+}
+
+.index-quicklink-title > img.nav-gh-icon {
+  width: 24px;
+  height: 24px;
+  margin: 0 10px 0 0;
+  transform: none;
+}
+
+@media screen and (max-width: 45em) {
+  .index-quicklink-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Grasshopper ribbon toolbar ------------------------------------------ */
+
+.Main-GhToolbar-Container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 37px;
+}
+
+.SubGroup-Container {
+  display: flex !important;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  background-color: var(--md-default-bg-color);
+  width: max-content;
+  transition: filter 0.2s, opacity 0.2s;
+}
+
+/* Category pages dim non-active groups via a scoped <style>; hover restores them. */
+.Main-GhToolbar-Container .SubGroup-Container:hover {
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+[data-md-color-scheme="slate"] .SubGroup-Container {
+  border: 1px solid #3a3f47;
+}
+
+.SubGroup-Icons {
+  display: inherit;
+  height: 63px;
+}
+
+.SubGroup-Title {
+  width: 100%;
+  color: #f1ede1;
+  font-size: 10px;
+  font-weight: 600;
+  text-align: center;
+  background-color: #29473a;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.GhComponentItem {
+  position: relative;
+  padding: 2.5px;
+  height: 29px;
+  display: block;
+}
+
+.GhComponentItem img {
+  width: 24px;
+  height: 24px;
+}
+
+.gh-component-selected:hover {
+  background-color: var(--md-primary-fg-color--light);
+  outline: 1px solid var(--md-default-fg-color);
+}
+
+.sub-group {
+  padding: 2.5px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 29px);
+  grid-template-rows: 29px 29px;
+  grid-auto-flow: column;
+  height: 63px;
+  width: max-content;
+}
+
+[above-dataComment]:hover:before,
+[below-dataComment]:hover:before {
+  display: unset;
+  opacity: 1;
+}
+
+[above-dataComment]:before,
+[below-dataComment]:before {
+  pointer-events: none;
+  position: absolute;
+  z-index: 3;
+  background-color: var(--md-default-fg-color);
+  border-radius: 20px;
+  color: var(--md-default-bg-color);
+  font-size: 12px;
+  text-align: center;
+  display: none;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2px 10px;
+  width: max-content;
+  height: fit-content;
+}
+
+[above-dataComment]:before {
+  content: attr(above-dataComment);
+  top: -30px;
+}
+
+[below-dataComment]:before {
+  content: attr(below-dataComment);
+  top: 35px;
+}
