@@ -1,0 +1,22 @@
+  - Components:
+      - "Overview": Components.md
+      - "Massing":
+          - "Overview": categories/Massing.md
+          - "<img src='/images/icons/Massing_Generator.png' class='nav-gh-icon' /> Massing Generator": components/Massing_Generator.md
+      - "Building Types":
+          - "Overview": categories/Building_Types.md
+          - "<img src='/images/icons/Courtyard_Config.png' class='nav-gh-icon' /> Courtyard Config": components/Courtyard_Config.md
+          - "<img src='/images/icons/Linear_Config.png' class='nav-gh-icon' /> Linear Config": components/Linear_Config.md
+          - "<img src='/images/icons/Point_Config.png' class='nav-gh-icon' /> Point Config": components/Point_Config.md
+          - "<img src='/images/icons/L-Shape_Config.png' class='nav-gh-icon' /> L-Shape Config": components/L-Shape_Config.md
+          - "<img src='/images/icons/U-Shape_Config.png' class='nav-gh-icon' /> U-Shape Config": components/U-Shape_Config.md
+          - "<img src='/images/icons/Tall_Building_Config.png' class='nav-gh-icon' /> Tall Building Config": components/Tall_Building_Config.md
+      - "Vegetation":
+          - "Overview": categories/Vegetation.md
+          - "<img src='/images/icons/Tree_Config.png' class='nav-gh-icon' /> Tree Config": components/Tree_Config.md
+      - "Site":
+          - "Overview": categories/Site.md
+          - "<img src='/images/icons/Terrain_Generator.png' class='nav-gh-icon' /> Terrain Generator": components/Terrain_Generator.md
+      - "Utilities":
+          - "Overview": categories/Utilities.md
+          - "<img src='/images/icons/Mycelium_Templates.png' class='nav-gh-icon' /> Mycelium Templates": components/Mycelium_Templates.md

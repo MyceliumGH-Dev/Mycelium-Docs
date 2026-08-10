@@ -1,0 +1,45 @@
+name: deploy
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - "docs/**/*.md"
+      - "docs/assets/**"
+      - "docs/images/**"
+      - "docs/overrides/**"
+      - "docs/stylesheets/**"
+      - "mkdocs.yml"
+      - "requirements.txt"
+      - ".github/workflows/deploy.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # git-revision-date-localized and git-authors read the full history.
+          fetch-depth: '0'
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+          cache: 'pip'
+          cache-dependency-path: requirements.txt
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+      - uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+      - run: pip install -r requirements.txt
+      # No CNAME step: the live site is served from Netlify on a *.netlify.app
+      # subdomain. gh-pages is the redundant second build. When a custom domain is
+      # bought, write it to ./CNAME here and set it in the repo's Pages settings.
+      - run: mkdocs gh-deploy --force

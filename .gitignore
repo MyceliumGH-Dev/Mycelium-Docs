@@ -1,0 +1,23 @@
+/site
+.cache/
+node_modules/
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+.DS_Store
+.vscode/*
+**/.idea
+*.swp
+
+.env
+.secrets
+
+# Agent files
+.antigravityignore
+.agent/
+.gemini/
+
+# Local Netlify folder
+.netlify

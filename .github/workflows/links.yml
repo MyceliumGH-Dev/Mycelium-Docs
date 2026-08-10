@@ -1,0 +1,35 @@
+name: Check for broken links
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches: [dev]
+    paths:
+      - "docs/**/*.md"
+      - ".github/workflows/links.yml"
+  pull_request:
+    branches: [dev]
+    paths:
+      - "docs/**/*.md"
+
+jobs:
+  link-checker:
+    runs-on: ubuntu-22.04
+    permissions: {}            # principle of least privilege
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Link Checker 🔗
+        uses: lycheeverse/lychee-action@v2
+        with:
+          fail: false                    # report, never block a docs push
+          args: >
+            --verbose
+            --no-progress
+            --timeout 60
+            --max-retries 5
+            --retry-wait-time 5
+            --accept '100..=103,200..=299,503'
+            ./docs/**/*.md

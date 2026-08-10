@@ -1,0 +1,7 @@
+# Root-relative asset paths resolve only once mkdocs has built the site.
+^/images/
+^/components/
+^/categories/
+
+# Opens the Rhino Package Manager, not a web page.
+^rhino://
