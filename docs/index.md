@@ -1,3 +1,11 @@
+---
+hide:
+  # Landing page for the docs — it routes you onward with its own links and cards, so the
+  # nav tree (and, with toc.integrate, the TOC that lives inside it) is noise here.
+  - navigation
+  - toc
+---
+
 # Mycelium Documentation
 
 Mycelium is a Grasshopper plugin for **generative urban massing** in Rhino 8. Feed it a

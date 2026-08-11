@@ -16,6 +16,9 @@ extra:
 # writes docs/components_nav.yml. Paste that file's contents over the block when
 # the component set changes; patch_nav.py re-adds the icon markup if it is lost.
 nav:
+  # Leftmost tab, and an absolute URL, so every docs page has one obvious way back to the
+  # marketing site. The two are separate deployments, so nothing else links them.
+  - "← Mycelium": "https://mycelium-gh.netlify.app"
   - Documentation:
       - Start: index.md
   - First Steps: first_steps.md

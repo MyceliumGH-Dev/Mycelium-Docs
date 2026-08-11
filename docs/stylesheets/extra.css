@@ -104,18 +104,70 @@
   outline-offset: 2px;
 }
 
-.md-button--primary {
+/* Material styles buttons off --md-primary-fg-color: the outline variant takes it as text
+   and border, the primary variant as fill. In the slate scheme that variable is the
+   near-black green the header needs (#1c3128), which lands within a hair of the slate page
+   background (#1e2129) — the outline button measured ~1:1 against it, and the primary
+   button's fill vanished so only its label showed.
+   Both variants are therefore pinned per scheme below.
+   Selectors must carry .md-typeset: Material's own rules are `.md-typeset .md-button--…`
+   (0,2,0), so a bare `.md-button--primary` (0,1,0) silently loses and does nothing. */
+
+.md-typeset .md-button--primary {
   background-color: #29473a;
   border-color: #29473a;
   color: #f1ede1;
 }
 
-.md-button--primary:hover,
-.md-button--primary:focus-visible {
+.md-typeset .md-button:focus,
+.md-typeset .md-button:hover {
   background-color: #3a6250;
   border-color: #3a6250;
   color: #ffffff;
 }
+
+/* Dark mode inverts the call to action — a light fill reads as a button against the slate
+   background, where any tint of the primary green does not. */
+
+[data-md-color-scheme="slate"] .md-typeset .md-button {
+  color: #8fb3a2;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .md-button--primary {
+  background-color: #8fb3a2;
+  border-color: #8fb3a2;
+  color: #12211b;
+}
+
+/* Hovering the outline button turns it into the primary button, so the two states stay
+   one visual language. */
+[data-md-color-scheme="slate"] .md-typeset .md-button:focus,
+[data-md-color-scheme="slate"] .md-typeset .md-button:hover {
+  background-color: #8fb3a2;
+  border-color: #8fb3a2;
+  color: #12211b;
+}
+
+/* --- Card grids ---------------------------------------------------------- */
+
+/* Material lays `.grid.cards` out as auto-fit / minmax(16rem, 1fr), which lands on three
+   across at the landing page's width and leaves a fourth card stranded on its own row.
+   `cards--four` pins the count instead. Scoped to the modifier class so it cannot catch
+   card grids added elsewhere later. */
+
+@media screen and (min-width: 60em) {
+  .md-typeset .grid.cards--four {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (min-width: 30em) and (max-width: 59.9375em) {
+  .md-typeset .grid.cards--four {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Below 30em Material's own single-column rule applies unchanged. */
 
 /* --- Layout helpers ------------------------------------------------------ */
 
