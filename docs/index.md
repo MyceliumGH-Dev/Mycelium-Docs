@@ -24,12 +24,11 @@ development and morphology metrics.
 
 ## Install
 
-1. In Rhino 8, run `_PackageManager`.
-2. Search for **mycelium**, install, and restart Rhino.
-3. The components appear in Grasshopper under the **Mycelium** tab.
+In Rhino 8, run `_PackageManager`, search for **mycelium**, install, and restart. The
+components appear in Grasshopper under the **Mycelium** tab.
 
-Full instructions, manual install, and pre-release builds:
-[mycelium-gh.netlify.app/download](https://mycelium-gh.netlify.app/download/).
+Manual install, pre-release builds, and building from source are covered on the
+[download page](https://mycelium-gh.netlify.app/download/).
 
 !!! warning "Rhino 8 only"
 
@@ -38,11 +37,11 @@ Full instructions, manual install, and pre-release builds:
 
 ---
 
-## The Toolbar
+## Where Things Are
 
-{!toolbar.md!}
-
-Components are organized into five panels:
+Components are organized into five panels. The
+[component reference](Components.md) carries the full toolbar and a card per component;
+each panel page below carries its own.
 
 | Panel | What lives there |
 | --- | --- |
@@ -78,25 +77,6 @@ Tree Config ────┘                        ──▶ Metrics, Morphology
 Everything is driven by the `Seed` input, so alternatives are reproducible.
 
 ![Algorithm overview](/images/algorithm.jpeg){ loading=lazy }
-
----
-
-## Street Networks
-
-Right-click the Massing Generator → **Street Network**. The selection is stored in the
-Grasshopper definition and shown beneath the component.
-
-| Family | Sub-options |
-| --- | --- |
-| Irregular Grid | `Recursive Orthogonal` (default), `Deformed Grid`, `Staggered Grid` |
-| Orthogonal Grid | `Regular Grid`, `Rectangular Grid`, `Cerdà Grid`, `Hierarchical Superblock` |
-| Diagonal Grid | `Single Axis`, `Cross Axes`, `Orthogonal Overlay` |
-| Radial–Concentric Grid | `Civic Core`, `Polygonal Radial`, `Fan Plan` |
-
-For batch campaigns, wire a sub-option name into the `StreetNetwork` input instead — e.g.
-`"Orthogonal/Cerda"` or `"Fan Plan"`. It overrides the menu selection. Names are case-,
-accent- and separator-insensitive; an unknown name raises a warning listing the valid
-ones.
 
 ---
 
